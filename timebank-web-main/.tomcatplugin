@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>WebRoot</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>true</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation>C:\Program Files\Apache Software Foundation\Tomcat 6.0\webapps\timebank-web-main.war</warLocation>
+    <extraInfo></extraInfo>
+    <webPath>/timebank-web-main</webPath>
+</tomcatProjectProperties>

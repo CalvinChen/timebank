@@ -1,0 +1,15 @@
+form input[type=text],form input[type=password] {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	height: 28px;
+}
+
+form input.error {
+	border: solid 1px red;
+}
+form label.error {
+	color: red;
+	font-weight: bold;
+	display: inline-block;
+	margin-left: 5px;
+}

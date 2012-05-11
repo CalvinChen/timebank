@@ -1,0 +1,1 @@
+<tr <c:if test="${i.count % 2 == 0}">class="doubleLine"</c:if>>

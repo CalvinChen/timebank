@@ -1,0 +1,1 @@
+<span class="warn"><c:if test="${!empty message}"> - ${message}</c:if></span>

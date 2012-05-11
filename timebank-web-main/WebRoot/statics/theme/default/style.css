@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+/* reset the browser default style */
+@import url(../common/reset.css);
+
+/* global use style, like body style, p style */
+@import url("global.css");
+
+/* common part style, like form, table style */
+@IMPORT url("common/common.css");
+
+/* plugins style */ 
+@import url(../plugin/plugin.css);
+
+
+
+/* user interface style 
+@import url(ui/ui.css);*/
+
