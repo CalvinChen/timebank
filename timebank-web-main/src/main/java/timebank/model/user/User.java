@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import timebank.model.bank.BankInfo;
+
 @Entity
 @Table(name = "user_table")
 public class User {
@@ -18,14 +20,20 @@ public class User {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id", nullable = false, unique = true)
-	private int userId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
-	 * user name, for login and display to other users.
+	 * user name, for login only.
 	 */
-	@Column(name = "user_name", length = 20, nullable = false, unique = true)
-	private String username;
+	@Column(name = "login_name", length = 20, nullable = false, unique = true)
+	private String loginName;
+	
+	/**
+	 * user name for displaying.
+	 */
+	@Column(name = "display_name", length = 20, nullable = false, unique = true)
+	private String displayName;
 	
 	/**
 	 * password
@@ -38,28 +46,50 @@ public class User {
 	 */
 	@OneToOne()
 	@JoinColumn(name = "user_info_id", nullable = false, unique = true)
-	private UserInfo userInfo;
+	private UserInfo userInfo = new UserInfo();
+	
+	/**
+	 * user's bank information
+	 */
+	@OneToOne
+	@JoinColumn(name = "bank_info_id", nullable = false, unique = true)
+	private BankInfo bankInfo = new BankInfo();
 	
 	/**
 	 * is this guy verified by admin to user timebank business?
 	 */
 	@Column(name = "is_verified", nullable = false, unique = false)
 	private Boolean isVerified = false;
-
-	public int getUserId() {
-		return userId;
+	
+	public User(){
+	}
+	
+	public User(int id){
+		this.id = id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public int getId() {
+		return id;
 	}
 
-	public String getUsername() {
-		return username;
+	public void setId(int userId) {
+		this.id = userId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String username) {
+		this.loginName = username;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 
 	public String getPassword() {
@@ -76,6 +106,14 @@ public class User {
 
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
+	}
+
+	public BankInfo getBankInfo() {
+		return bankInfo;
+	}
+
+	public void setBankInfo(BankInfo bankInfo) {
+		this.bankInfo = bankInfo;
 	}
 
 	public Boolean getIsVerified() {

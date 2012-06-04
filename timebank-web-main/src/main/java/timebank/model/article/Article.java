@@ -26,15 +26,15 @@ public class Article {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "article_id", nullable = false, unique = true)
-	private int articleId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * admin who post it.
 	 */
 	@ManyToOne
 	@JoinColumn(name = "admin_id", nullable = false, unique = false)
-	private Admin admin;
+	private Admin author;
 	
 	/**
 	 * when post and when update.
@@ -45,8 +45,9 @@ public class Article {
 	/**
 	 * article type, to be enumerated.
 	 */
-	@Column(name = "article_type", nullable = false, unique = false)
-	private Short articleType;
+	@ManyToOne
+	@JoinColumn(name = "article_type_id", nullable = false, unique = false)
+	private ArticleType articleType;
 	
 	/**
 	 * title of the article.
@@ -67,20 +68,20 @@ public class Article {
 	@Column(name = "article_click_count", nullable = false, unique = false)
 	private int articleClickCount = 0;
 
-	public int getArticleId() {
-		return articleId;
+	public int getId() {
+		return id;
 	}
 
-	public void setArticleId(int articleId) {
-		this.articleId = articleId;
+	public void setId(int articleId) {
+		this.id = articleId;
 	}
 
-	public Admin getAdmin() {
-		return admin;
+	public Admin getAuthor() {
+		return author;
 	}
 
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
+	public void setAuthor(Admin admin) {
+		this.author = admin;
 	}
 
 	public Date getPostTime() {
@@ -91,11 +92,11 @@ public class Article {
 		this.postTime = postTime;
 	}
 
-	public Short getArticleType() {
+	public ArticleType getArticleType() {
 		return articleType;
 	}
 
-	public void setArticleType(Short articleType) {
+	public void setArticleType(ArticleType articleType) {
 		this.articleType = articleType;
 	}
 

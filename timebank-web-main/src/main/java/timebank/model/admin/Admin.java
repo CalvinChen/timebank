@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,14 +20,20 @@ public class Admin {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "admin_id", nullable = false, unique = true)
-	private int adminId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
-	 * admin's username.
+	 * admin's login name.
 	 */
-	@Column(name = "username_column", length = 20, nullable = false, unique = true)
-	private String username;
+	@Column(name = "login_name", length = 20, nullable = false, unique = true)
+	private String loginName;
+	
+	/**
+	 * admin's display name.
+	 */
+	@Column(name = "display_name", length = 20, nullable = false, unique = true)
+	private String displayName;
 	
 	/**
 	 * password.
@@ -44,23 +51,39 @@ public class Admin {
 	/**
 	 * admin level, determine what an admin can do.
 	 */
-	@Column(name = "admin_level", nullable = false, unique = false)
-	private Short adminLevel;
-
-	public int getAdminId() {
-		return adminId;
+	@ManyToOne
+	@JoinColumn(name = "admin_level_id", nullable = false, unique = false)
+	private AdminLevel adminLevel;
+	
+	public Admin(){
+	}
+	
+	public Admin(int adminId){
+		this.id = adminId;
 	}
 
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
+	public int getId() {
+		return id;
 	}
 
-	public String getUsername() {
-		return username;
+	public void setId(int adminId) {
+		this.id = adminId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 
 	public String getPassword() {
@@ -79,11 +102,12 @@ public class Admin {
 		this.linkedUser = linkedUser;
 	}
 
-	public Short getAdminLevel() {
+	public AdminLevel getAdminLevel() {
 		return adminLevel;
 	}
 
-	public void setAdminLevel(Short adminLevel) {
+	public void setAdminLevel(AdminLevel adminLevel) {
 		this.adminLevel = adminLevel;
 	}
+
 }

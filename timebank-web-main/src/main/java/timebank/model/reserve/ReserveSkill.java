@@ -29,8 +29,8 @@ public class ReserveSkill {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "reserve_skill_id", nullable = false, unique = true)
-	private int skillId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * user who own this skill.
@@ -58,12 +58,12 @@ public class ReserveSkill {
 	@Column(name = "skill_description", length = 100, nullable = true, unique = false)
 	private String description;
 
-	public int getSkillId() {
-		return skillId;
+	public int getId() {
+		return id;
 	}
 
-	public void setSkillId(int skillId) {
-		this.skillId = skillId;
+	public void setId(int skillId) {
+		this.id = skillId;
 	}
 
 	public User getUser() {

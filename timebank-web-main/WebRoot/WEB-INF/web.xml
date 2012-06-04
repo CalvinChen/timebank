@@ -18,16 +18,17 @@
 	</filter-mapping>
 
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index</welcome-file>
 	</welcome-file-list>
 	
-	<!-- 监听器，启动过期检查 -->
+	<!-- 监听器，启动过期检查
 	<listener>
 		<listener-class>
         	timebank.util.timetasks.ExpirerRunner
 		</listener-class>
 	</listener>
-	
+	 -->
+	 
 	<!-- Spring 配置 -->
 	<listener>  
 		<listener-class>

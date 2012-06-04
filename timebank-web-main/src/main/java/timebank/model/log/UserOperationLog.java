@@ -26,8 +26,8 @@ public class UserOperationLog {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_operation_log_id", nullable = false, unique = true)
-	private int userOperationLogId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * the user who conduct this operation.
@@ -61,12 +61,12 @@ public class UserOperationLog {
 	@Column(name = "description_column", nullable = false, unique = false)
 	private String description;
 
-	public int getUserOperationLogId() {
-		return userOperationLogId;
+	public int getId() {
+		return id;
 	}
 
-	public void setUserOperationLogId(int userOperationLogId) {
-		this.userOperationLogId = userOperationLogId;
+	public void setId(int userOperationLogId) {
+		this.id = userOperationLogId;
 	}
 
 	public User getUserConducted() {

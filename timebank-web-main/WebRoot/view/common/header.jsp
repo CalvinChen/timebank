@@ -10,4 +10,4 @@
 <%@ include file="/view/common/js.jsp" %>
 
 <body class="master">
-<div class="container-fluid">
+<div class="container">

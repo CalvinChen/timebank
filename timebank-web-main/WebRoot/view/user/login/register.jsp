@@ -1,38 +1,58 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ include file="/view/common/taglibs.jsp"%>
-<div id="myModal">
-	<div class="modal-header">
-		<h3>欢迎入户时间银行！</h3>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/view/common/header.jsp"%>
+<%@ include file="/view/common/part/user/nav.jsp"%>
+
+<div id="registerDiv">
+	<div class="row">
+		<div class="span11 offset1">
+			<h1>欢迎入户时间银行！</h1>
+		</div>
 	</div>
-	<div class="span10">
-		<div class="row">
-			<div class="span4 well">
-				<h4><i class="icon-star"></i> 入户须知 <i class="icon-star"></i></h4>
-				<p>时间银行目前对外开放注册。注册用户可以登录网站查看相关信息，
-				但是还无法使用如存储时间、提取时间等银行业务哦。</p>
-				<p>只有通过我们身份验证的<br>
-					<strong>华南农业大学全日制本科生</strong><br>
-				才拥有使用银行业务的权限。</p>
-			</div>
-			<div class="span5">
+	<div class="row">
+		<div class="span4 offset1 well">
+			<ul>
+				<h3><i class="icon-star"></i> 入户须知 <i class="icon-star"></i></h3>
+				<li>时间银行目前对外开放注册，但只有通过身份验证的会员才可使用时间银行业务。</li>
+				<li>欲使用时间银行业务，请于工作日上班时间，亲自持本人校园卡到启林南分点办理身份验证。</li>
+				<li>真诚互助，惠及你我。</li>
+			</ul>
+		</div>
+		<div class="span6">
 				<form id="registerForm" class="form-horizontal" 
-						action="${path}/user/register/do_register" method="post">
+						action="${path}/user/submitRegister" method="post">
 					<fieldset>
+						<%@ include file="/view/common/part/common/message.jsp"%>
+						<legend>请填写以下简单信息</legend>
 						<div class="control-group">
-								<input class="input-large required" name="user.userInfo.email" 
-									type="text" placeholder="Email">
+							<label class="control-label" for="inputLoginName">电子邮件</label>
+							<div class="controls">
+								<input id="inputLoginName" class="input-large required" name="form.user.loginName" 
+									type="text" placeholder="推荐填写最常使用的Email">
+								<p class="help-block">用于登录时间银行以及Email联系</p>
+							</div>
 						</div>
 						<div class="control-group">
-								<input class="input-large" name="user.username" 
-									type="text" placeholder="用户名">
+							<label class="control-label" for="inputDisplayName">用户名</label>
+							<div class="controls">
+								<input id="inputDisplayName" class="input-small" name="form.user.displayName" 
+									type="text" placeholder="2-20字以内">
+								<p class="help-block">对其它用户的唯一昵称显示，可在注册后更换</p>
+							</div>
 						</div>
 						<div class="control-group">
-								<input id="passwordInput" class="input-large" name="user.password" 
-									type="password" placeholder="密码">
+							<label class="control-label" for="passwordInput">密码</label>
+							<div class="controls">
+								<input id="passwordInput" class="input-large" name="form.user.password" 
+									type="password" placeholder="6个字符以上">
+							</div>
 						</div>
 						<div class="control-group">
-								<input class="input-large" name="passwordConfirm" 
-									type="password" placeholder="重复密码">
+							<label class="control-label" for="input03">重复密码</label>
+							<div class="controls">
+								<input id="input03" class="input-large" name="form.passwordConfirm" 
+									type="password" placeholder="与上面保持一致">
+							</div>
 						</div>
 						<hr>
 						<div class="btn-group pull-right">
@@ -42,16 +62,10 @@
 						</div>
 					</fieldset>
 				</form>
-			</div>
 		</div>
 	</div>
 </div>
-<div id="returnText" class="hide">
-	<h3></h3>
-	<button class="btn btn-large btn-success closeDialog">确定</button>
-</div>
-<script>
-	setupValidate();
-	bindResetForm();
-	tryAjaxForm();
-</script>
+
+<script src="${statics}/script/module/user/login/register.js" type="text/javascript"></script>
+<link href="${css}/module/user/login/register.css" type="text/css" rel="stylesheet" />
+<%@ include file="/view/common/footer.jsp"%>

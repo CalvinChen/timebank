@@ -32,8 +32,8 @@ public class UserMessageFromSystem {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_message_id", nullable = false, unique = true)
-	private int messageId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * message type.
@@ -80,12 +80,12 @@ public class UserMessageFromSystem {
 	@Column(name = "is_read", nullable = false, unique = false)
 	private Boolean isRead = false;
 
-	public int getMessageId() {
-		return messageId;
+	public int getId() {
+		return id;
 	}
 
-	public void setMessageId(int messageId) {
-		this.messageId = messageId;
+	public void setId(int messageId) {
+		this.id = messageId;
 	}
 
 	public Short getType() {

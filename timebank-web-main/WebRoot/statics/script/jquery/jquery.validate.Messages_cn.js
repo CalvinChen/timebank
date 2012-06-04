@@ -15,5 +15,7 @@ jQuery.extend(jQuery.validator.messages, {
 		rangelength: jQuery.format("长度应介于 {0} 和 {1}"),
 		range: jQuery.format("值应介于 {0} 和 {1}"),
 		max: jQuery.format("最大为 {0}"),
-		min: jQuery.format("最小为 {0}")
+		min: jQuery.format("最小为 {0}"),
+		checkEmailDuplicate: "此电子邮件已存在",
+		checkDisplayNameDuplicate: "此用户名已存在"
 });

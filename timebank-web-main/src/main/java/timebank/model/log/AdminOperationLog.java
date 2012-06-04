@@ -29,8 +29,8 @@ public class AdminOperationLog {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "admin_operation_log_id", nullable = false, unique = true)
-	private int adminOperationLogId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * the admin who conduct this operation.
@@ -64,12 +64,12 @@ public class AdminOperationLog {
 	@Column(name = "description_column", nullable = false, unique = false)
 	private String description;
 
-	public int getAdminOperationLogId() {
-		return adminOperationLogId;
+	public int getId() {
+		return id;
 	}
 
-	public void setAdminOperationLogId(int adminOperationLogId) {
-		this.adminOperationLogId = adminOperationLogId;
+	public void setId(int adminOperationLogId) {
+		this.id = adminOperationLogId;
 	}
 
 	public Admin getAdminConducted() {

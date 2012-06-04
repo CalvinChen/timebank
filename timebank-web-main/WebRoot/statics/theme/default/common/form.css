@@ -1,11 +1,9 @@
 form input[type=text],form input[type=password] {
-	margin-bottom: 10px;
-	margin-top: 10px;
-	height: 28px;
+	height: 24px;
 }
 
 form input.error {
-	border: solid 1px red;
+	border: solid 3px red;
 }
 form label.error {
 	color: red;

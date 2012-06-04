@@ -21,8 +21,8 @@ public class UserInfo {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_info_id", nullable = false, unique = true)
-	private int userInfoId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * email
@@ -67,12 +67,6 @@ public class UserInfo {
 	private String address;
 	
 	/**
-	 * zone
-	 */
-	@Column(name = "live_zone", nullable = true, unique = false)
-	private String zone;
-	
-	/**
 	 * phone long number.
 	 */
 	@Column(name = "phone_long", nullable = true, unique = false)
@@ -90,12 +84,12 @@ public class UserInfo {
 	@Column(name = "user_photo", nullable = true, unique = false)
 	private String userPhoto;
 
-	public int getUserInfoId() {
-		return userInfoId;
+	public int getId() {
+		return id;
 	}
 
-	public void setUserInfoId(int userInfoId) {
-		this.userInfoId = userInfoId;
+	public void setId(int userInfoId) {
+		this.id = userInfoId;
 	}
 
 	public String getEmail() {
@@ -152,14 +146,6 @@ public class UserInfo {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public String getZone() {
-		return zone;
-	}
-
-	public void setZone(String zone) {
-		this.zone = zone;
 	}
 
 	public String getPhoneLong() {

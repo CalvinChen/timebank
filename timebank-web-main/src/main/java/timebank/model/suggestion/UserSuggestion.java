@@ -28,8 +28,8 @@ public class UserSuggestion {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_suggestion_id", nullable = false, unique = true)
-	private int userSuggestionId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * user who suggest this.
@@ -78,12 +78,12 @@ public class UserSuggestion {
 	@JoinColumn(name = "suggestion_answer_id", nullable = true, unique = true)
 	private UserSuggestionAnswer answerInfo;
 
-	public int getUserSuggestionId() {
-		return userSuggestionId;
+	public int getId() {
+		return id;
 	}
 
-	public void setUserSuggestionId(int userSuggestionId) {
-		this.userSuggestionId = userSuggestionId;
+	public void setId(int userSuggestionId) {
+		this.id = userSuggestionId;
 	}
 
 	public User getSuggestUser() {

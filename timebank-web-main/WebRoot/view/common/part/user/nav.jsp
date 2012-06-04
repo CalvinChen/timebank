@@ -34,7 +34,7 @@
 					<div class="nav-collapse">
 						<ul class="nav">
 							<li class="active" title="首页" rel="#load1"><a
-								href="/TimeBank/Index_view" class="first">首页</a></li>
+								href="${path}/index" class="first">首页</a></li>
 							<li class="supertips" title="项目简介" rel="#load11"><a
 								href="/TimeBank/Document_view?aid=6" class="first">项目简介</a></li>
 							<li class="supertips" title="个人中心" rel="#load2"><a
@@ -47,12 +47,14 @@
 								href="/TimeBank/Feedback_view" class="first">反馈 </a></li>
 							<li class="supertips" title="联系我们" rel="#load6"><a
 								href="/TimeBank/Contact_view" class="first">联系我们</a></li>
-							<c:if test="${!empty userLogined}">
-								<li class="supertips" title="退出" rel="#load7"><a
-									href="/TimeBank/Login_execute?message=quit">退出</a></li>
-							</c:if>
 						</ul>
-						<p class="navbar-text pull-right">你好，<a href="#">陈凯</a></p>
+						<c:if test="${!empty currentUser}">
+							<p class="navbar-text pull-right">
+								<a href="#">${currentUser.displayName}</a>
+								|
+								<a href="user/quit">退出</a>
+							</p>
+						</c:if>
 					</div>
 				</div>
 			</div>

@@ -25,8 +25,8 @@ public class CookieAdmin {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cookie_id", nullable = false, unique = true)
-	private int cookieAdminId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * owner of the cookie is a admin.
@@ -40,13 +40,22 @@ public class CookieAdmin {
 	 */
 	@Column(name = "session_id_content", nullable = false, unique = false)
 	private String sessionIdContent;
+	
+	public CookieAdmin(){
+	}	
 
-	public int getCookieAdminId() {
-		return cookieAdminId;
+	public CookieAdmin(Admin cookieOwner, String sessionIdContent) {
+		this.cookieOwner = cookieOwner;
+		this.sessionIdContent = sessionIdContent;
 	}
 
-	public void setCookieAdminId(int cookieAdminId) {
-		this.cookieAdminId = cookieAdminId;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int cookieAdminId) {
+		this.id = cookieAdminId;
 	}
 
 	public Admin getCookieOwner() {

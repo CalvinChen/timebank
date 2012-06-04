@@ -1,50 +1,55 @@
 console.log("call the register.js file");
-function bindResetForm(){
-	$("#registerForm input[type=reset]").click(function(){
-		var validator = $("#registerForm").validate();
-		validator.resetForm();
-	});
-}
-function setupValidate(){
-	$("#registerForm").validate({
-		rules: {
-			"user.userInfo.email": {
-				email: true,
-				required: true
-			},
-			"user.username": {
-				required: true,
-				minlength: 2,
-				maxlength: 20
-			},
-			"user.password": {
-				required: true,
-				minlength: 6,
-				maxlength: 50
-			},
-			"passwordConfirm": {
-				required: true,
-				equalTo: "#passwordInput"
-			}
+$.validator.addMethod("checkEmailDuplicate", function(value, element){
+	var result = false;
+	$.ajax({
+		url : Global.path + "/user/checkEmailDuplicate?form.user.loginName=" + value,
+		type : "post", 
+		dataType : "json",
+		async : false,
+		success : function(json) {
+			result = json.form.checkDuplicateResult;
 		}
 	});
-}
-function tryAjaxForm(){
-	$("#registerForm").ajaxForm({
-//		dataType: "json",
-		success: showMessage
+	return result;
+});
+$.validator.addMethod("checkDisplayNameDuplicate", function(value, element){
+	var result = false;
+	$.ajax({
+		url : Global.path + "/user/checkDisplayNameDuplicate?form.user.displayName=" + value,
+		type : "post", 
+		dataType : "json",
+		async : false,
+		success : function(json) {
+			result = json.form.checkDuplicateResult;
+		}
 	});
-}
-function showMessage(resp){
-	var message = JSON.parse(resp);
-	console.log(message.status);
-	console.log(message.info);
-	$("#returnText h3").html(message.info);
-	if(message.status == true){
-		NMDialog.openDialog("#returnText", function(){
-			NMDialog.closeDialog();
+	return result;
+});
+$("#registerForm").validate({
+			rules : {
+				"form.user.loginName" : {
+					email : true,
+					required : true,
+					checkEmailDuplicate : true
+				},
+				"form.user.displayName" : {
+					required : true,
+					minlength : 2,
+					maxlength : 20,
+					checkDisplayNameDuplicate : true
+				},
+				"form.user.password" : {
+					required : true,
+					minlength : 6,
+					maxlength : 50
+				},
+				"form.passwordConfirm" : {
+					required : true,
+					equalTo : "#passwordInput"
+				}
+			}
 		});
-	} else {
-		NMDialog.openDialog("#returnText");
-	}
-}
+$("#registerForm input[type=reset]").click(function() {
+			var validator = $("#registerForm").validate();
+			validator.resetForm();
+		});

@@ -27,8 +27,8 @@ public class ArticleComment {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "article_comment_id", nullable = false, unique = true)
-	private int articleCommentId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * who make this comment?
@@ -49,12 +49,12 @@ public class ArticleComment {
 	@Column(name = "comment_time", nullable = false, unique = false)
 	private Date commentTime;
 
-	public int getArticleCommentId() {
-		return articleCommentId;
+	public int getId() {
+		return id;
 	}
 
-	public void setArticleCommentId(int articleCommentId) {
-		this.articleCommentId = articleCommentId;
+	public void setId(int articleCommentId) {
+		this.id = articleCommentId;
 	}
 
 	public User getCommenter() {

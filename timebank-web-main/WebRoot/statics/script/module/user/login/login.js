@@ -1,31 +1,33 @@
 $(document).ready(function(){
 	console.log("call the login.js file");
-	$("#loginForm").validate({
+	$("#formLogin").validate({
 		rules: {
-			"loginUser.username": {
+			"form.user.loginName": {
 				required: true,
-				minlength: 2
+				email: true
 			},
-			"loginUser.password": {
+			"form.user.password": {
 				required: true,
 				minlength: 6
 			}
 		},
 		messages: {
-			"loginUser.username": {
-				required: "请输入用户名",
-				minlength: "用户名最短为2个字符！"
+			"form.user.loginName": {
+				required: "请输入账户名",
+				email: "请输入您的电子邮箱！"
 			},
-			"loginUser.password": {
+			"form.user.password": {
 				required: "请输入密码",
 				minlength: "密码最短为6个字符！"
 			}
 		}
 	});
-	
-	NMDialog.initDialogLink();
 });
-
-function reloadIndex(){
-	console.log("reload");
-}
+$("#btnLogin").on("click", function(){
+	$("#formLogin").validate();
+	$("#formLogin").submit();
+});
+$("#btnRegister").on("click", function(){
+	location.href = $(this).attr("data-url");
+	return false;
+});

@@ -26,8 +26,8 @@ public class CookieUser {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cookie_id", nullable = false, unique = true)
-	private int cookieUserId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * owner of the cookie is a user.
@@ -41,13 +41,23 @@ public class CookieUser {
 	 */
 	@Column(name = "session_id_content", nullable = false, unique = false)
 	private String sessionIdContent;
-
-	public int getCookieUserId() {
-		return cookieUserId;
+	
+	public CookieUser(){
 	}
 
-	public void setCookieUserId(int cookieUserId) {
-		this.cookieUserId = cookieUserId;
+	public CookieUser(User cookieOwner, String sessionIdContent) {
+		this.cookieOwner = cookieOwner;
+		this.sessionIdContent = sessionIdContent;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int cookieUserId) {
+		this.id = cookieUserId;
 	}
 
 	public User getCookieOwner() {

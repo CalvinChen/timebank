@@ -13,7 +13,7 @@
 <!--便于在JS中获取上下文路径和全路径-->
 <script type="text/javascript">
 	var Global = {};
-	Global.contextPath = '${contextPath}';
+	Global.path = '${path}';
 	Global.serverPath = '${serverPath}';
 	var Config = Global ;
 

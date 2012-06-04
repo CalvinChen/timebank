@@ -24,8 +24,8 @@ public class ReserveIdleTime {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idle_time_id", nullable = false, unique = true)
-	private int idleTimeId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * user who own this idle time.
@@ -53,12 +53,12 @@ public class ReserveIdleTime {
 	@Column(name = "idle_time_description", length = 200, nullable = true, unique = false)
 	private String description;
 
-	public int getIdleTimeId() {
-		return idleTimeId;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdleTimeId(int idleTimeId) {
-		this.idleTimeId = idleTimeId;
+	public void setId(int idleTimeId) {
+		this.id = idleTimeId;
 	}
 
 	public User getUser() {

@@ -27,8 +27,8 @@ public class UserSuggestionAnswer {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_suggestion_answer_id", nullable = false, unique = true)
-	private int suggestionAnswerId;
+	@Column(name = "id", nullable = false, unique = true)
+	private int id;
 	
 	/**
 	 * the admin who answer the suggestion
@@ -49,12 +49,12 @@ public class UserSuggestionAnswer {
 	@Column(name = "answer_content", length = 400, nullable = false, unique = false)
 	private String answerContent;
 
-	public int getSuggestionAnswerId() {
-		return suggestionAnswerId;
+	public int getId() {
+		return id;
 	}
 
-	public void setSuggestionAnswerId(int suggestionAnswerId) {
-		this.suggestionAnswerId = suggestionAnswerId;
+	public void setId(int suggestionAnswerId) {
+		this.id = suggestionAnswerId;
 	}
 
 	public Admin getAdminAnswered() {
