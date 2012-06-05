@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -50,7 +51,8 @@ public class ReserveIdleTime {
 	 * description of the idle time.
 	 * can be null if there's no.
 	 */
-	@Column(name = "idle_time_description", length = 200, nullable = true, unique = false)
+	@Column(name = "idle_time_description", length = Values.SMALL_CONTENT_LENGTH,
+			nullable = true, unique = false)
 	private String description;
 
 	public int getId() {

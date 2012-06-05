@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -74,9 +75,16 @@ public class SideRecord {
 	private short range;
 	
 	/**
+	 * the title of this record.
+	 */
+	@Column(name = "record_title", length = Values.NORMAL_TITLE_LENGTH, nullable = false, unique = false)
+	private String title;
+	
+	/**
 	 * description of the business.
 	 */
-	@Column(name = "description_column", length = 2000, nullable = false, unique = false)
+	@Column(name = "description_column", length = Values.NORMAL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String description;
 
 	/**
@@ -169,6 +177,14 @@ public class SideRecord {
 
 	public void setRange(short range) {
 		this.range = range;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDescription() {

@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import timebank.model.Values;
+
 /**
  * common used user's information
  * @author Calvin Chen
@@ -27,61 +29,71 @@ public class UserInfo {
 	/**
 	 * email
 	 */
-	@Column(name = "email_address", nullable = true, unique = false)
+	@Column(name = "email_address", length = Values.LARGE_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String email;
 
 	/**
 	 * true name
 	 */
-	@Column(name = "true_name", nullable = true, unique = false)
+	@Column(name = "true_name", length = Values.NORMAL_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String trueName;
 	
 	/**
 	 * qq id
 	 */
-	@Column(name = "qq_id", nullable = true, unique = false)
+	@Column(name = "qq_id", length = Values.NORMAL_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String qqId;
 	
 	/**
 	 * weibo url
 	 */
-	@Column(name = "weibo_url", nullable = true, unique = false)
+	@Column(name = "weibo_url", length = Values.LARGE_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String weiboUrl;
 	
 	/**
 	 * blog url
 	 */
-	@Column(name = "blog_url", nullable = true, unique = false)
+	@Column(name = "blog_url", length = Values.LARGE_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String blogUrl;
 	
 	/**
 	 * sex
 	 */
-	@Column(name = "sex_column", nullable = true, unique = false)
+	@Column(name = "sex_column", length = Values.NORMAL_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String sex;
 	
 	/**
 	 * address
 	 */
-	@Column(name = "live_address", nullable = true, unique = false)
+	@Column(name = "live_address", length = Values.LARGE_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String address;
 	
 	/**
 	 * phone long number.
 	 */
-	@Column(name = "phone_long", nullable = true, unique = false)
+	@Column(name = "phone_long", length = Values.NORMAL_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String phoneLong;
 	
 	/**
 	 * phone short number
 	 */
-	@Column(name = "phone_short", nullable = true, unique = false)
+	@Column(name = "phone_short", length = Values.NORMAL_NAME_LENGTH,
+			nullable = true, unique = false)
 	private String phoneShort;
 	
 	/**
 	 * user's photo
 	 */
-	@Column(name = "user_photo", nullable = true, unique = false)
+	@Column(name = "user_photo", length = Values.NORMAL_PICTURE_URL_LENGTH,
+			nullable = true, unique = false)
 	private String userPhoto;
 
 	public int getId() {

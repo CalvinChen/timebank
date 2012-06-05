@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import timebank.model.Values;
 /**
  * feedback of the help record.
  * @author Calvin Chen
@@ -34,7 +36,7 @@ public class HelpRecordFeedback {
 	/**
 	 * content of the feedback.
 	 */
-	@Column(name = "feedback_content", length = 2000, nullable = false, unique = false)
+	@Column(name = "feedback_content", length = Values.NORMAL_CONTENT_LENGTH, nullable = false, unique = false)
 	private String content;
 	
 	/**

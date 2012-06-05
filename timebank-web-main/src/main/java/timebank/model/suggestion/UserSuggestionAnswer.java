@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.admin.Admin;
 
 /**
@@ -46,7 +47,8 @@ public class UserSuggestionAnswer {
 	/**
 	 * answer content.
 	 */
-	@Column(name = "answer_content", length = 400, nullable = false, unique = false)
+	@Column(name = "answer_content", length = Values.SMALL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String answerContent;
 
 	public int getId() {

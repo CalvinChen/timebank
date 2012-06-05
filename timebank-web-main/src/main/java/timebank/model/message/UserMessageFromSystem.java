@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -51,13 +52,15 @@ public class UserMessageFromSystem {
 	/**
 	 * title of the message.
 	 */
-	@Column(name = "message_title", length = 40, nullable = false, unique = false)
+	@Column(name = "message_title", length = Values.NORMAL_TITLE_LENGTH,
+			nullable = false, unique = false)
 	private String title;
 	
 	/**
 	 * content of the message.
 	 */
-	@Column(name = "message_content", length = 2000, nullable = false, unique = false)
+	@Column(name = "message_content", length = Values.NORMAL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String content;
 	
 	/**

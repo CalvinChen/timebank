@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -26,7 +27,8 @@ public class Student extends User{
 	 * student id used in school.
 	 * must be unique.
 	 */
-	@Column(name = "student_id", length = 20, nullable = true, unique = true)
+	@Column(name = "student_id", length = Values.NORMAL_NAME_LENGTH,
+			nullable = true, unique = true)
 	private String studentId;
 	
 	/**

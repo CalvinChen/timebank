@@ -1,4 +1,4 @@
-package timebank.model.log;
+package timebank.model;
 
 public class OperationType {
 	public static final String VERIFY = "身份验证";

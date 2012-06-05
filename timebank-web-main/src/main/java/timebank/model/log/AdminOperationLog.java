@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import timebank.model.Values;
 import timebank.model.admin.Admin;
 import timebank.model.user.User;
 
@@ -55,13 +56,15 @@ public class AdminOperationLog {
 	/**
 	 * what's the type of this log?
 	 */
-	@Column(name = "operation_type", nullable = false, unique = false)
+	@Column(name = "operation_type", length = Values.NORMAL_NAME_LENGTH,
+			nullable = false, unique = false)
 	private String operation;
 	
 	/**
 	 * some extra information, like why verify to true, or to false 
 	 */
-	@Column(name = "description_column", nullable = false, unique = false)
+	@Column(name = "description_column", length = Values.SMALL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String description;
 
 	public int getId() {

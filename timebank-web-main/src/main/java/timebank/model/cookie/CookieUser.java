@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 
@@ -39,7 +40,8 @@ public class CookieUser {
 	/**
 	 * session id content of the cookie
 	 */
-	@Column(name = "session_id_content", nullable = false, unique = false)
+	@Column(name = "session_id_content", length = Values.SMALL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String sessionIdContent;
 	
 	public CookieUser(){
@@ -49,8 +51,6 @@ public class CookieUser {
 		this.cookieOwner = cookieOwner;
 		this.sessionIdContent = sessionIdContent;
 	}
-
-
 
 	public int getId() {
 		return id;

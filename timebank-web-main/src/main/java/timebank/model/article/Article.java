@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.admin.Admin;
 
 /**
@@ -52,13 +53,13 @@ public class Article {
 	/**
 	 * title of the article.
 	 */
-	@Column(name = "article_title", length = 50, nullable = false, unique = false)
+	@Column(name = "article_title", length = Values.NORMAL_TITLE_LENGTH, nullable = false, unique = false)
 	private String articleTitle;
 	
 	/**
 	 * content of the article.
 	 */
-	@Column(name = "article_content", length = 10000, nullable = false, unique = false)
+	@Column(name = "article_content", length = Values.LARGE_CONTENT_LENGTH, nullable = false, unique = false)
 	private String articleContent;
 	
 	/**

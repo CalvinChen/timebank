@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.bank.BankInfo;
 
 @Entity
@@ -26,19 +27,21 @@ public class User {
 	/**
 	 * user name, for login only.
 	 */
-	@Column(name = "login_name", length = 20, nullable = false, unique = true)
+	@Column(name = "login_name", length = Values.LARGE_NAME_LENGTH, nullable = false, unique = true)
 	private String loginName;
 	
 	/**
 	 * user name for displaying.
 	 */
-	@Column(name = "display_name", length = 20, nullable = false, unique = true)
+	@Column(name = "display_name", length = Values.NORMAL_NAME_LENGTH,
+			nullable = false, unique = true)
 	private String displayName;
 	
 	/**
 	 * password
 	 */
-	@Column(name = "password_column", length = 50, nullable = false)
+	@Column(name = "password_column", length = Values.NORMAL_PASSWORD_LENGTH,
+			nullable = false, unique = false)
 	private String password;
 	
 	/**

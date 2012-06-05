@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -42,20 +43,23 @@ public class ReserveSkill {
 	/**
 	 * skill's big range.
 	 */
-	@Column(name = "range_big", length = 20, nullable = false, unique = false)
+	@Column(name = "range_big", length = Values.NORMAL_NAME_LENGTH,
+			nullable = false, unique = false)
 	private String rangeBig;
 	
 	/**
 	 * skill's small range.
 	 */
-	@Column(name = "range_small", length = 20, nullable = false, unique = false)
+	@Column(name = "range_small", length = Values.NORMAL_NAME_LENGTH,
+			nullable = false, unique = false)
 	private String rangeSmall;
 	
 	/**
 	 * description of the skill.
 	 * can be null if the user had not filled up.
 	 */
-	@Column(name = "skill_description", length = 100, nullable = true, unique = false)
+	@Column(name = "skill_description", length = Values.SMALL_CONTENT_LENGTH,
+			nullable = true, unique = false)
 	private String description;
 
 	public int getId() {

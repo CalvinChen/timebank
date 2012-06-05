@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -40,7 +41,7 @@ public class ArticleComment {
 	/**
 	 * the content of the comment.
 	 */
-	@Column(name = "comment_content", length = 200, nullable = false, unique = false)
+	@Column(name = "comment_content", length = Values.NORMAL_CONTENT_LENGTH, nullable = false, unique = false)
 	private String commentContent;
 	
 	/**

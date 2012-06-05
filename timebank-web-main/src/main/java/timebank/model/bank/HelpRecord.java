@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -84,13 +85,15 @@ public class HelpRecord {
 	/**
 	 * description from the to-help.
 	 */
-	@Column(name = "description_by_to_help", length = 2000, nullable = false, unique = false)
+	@Column(name = "description_by_to_help", length = Values.NORMAL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String descriptionByToHelp;
 	
 	/**
 	 * description from the helped.
 	 */
-	@Column(name = "description_by_helped", length = 2000, nullable = false, unique = false)
+	@Column(name = "description_by_helped", length = Values.NORMAL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String descriptionByHelped;
 
 	/**

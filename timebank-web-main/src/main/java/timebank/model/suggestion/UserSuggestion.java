@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 /**
@@ -42,7 +43,8 @@ public class UserSuggestion {
 	 * picture about the suggestion uploaded by user to show more information.
 	 * can be null if there's no.
 	 */
-	@Column(name = "related_picture", nullable = true, unique = false)
+	@Column(name = "related_picture", length = Values.NORMAL_PICTURE_URL_LENGTH,
+			nullable = true, unique = false)
 	private String relatedPicture;
 	
 	/**
@@ -54,13 +56,15 @@ public class UserSuggestion {
 	/**
 	 * the title of the suggestion.
 	 */
-	@Column(name = "suggestion_title", length = 50, nullable = false, unique = false)
+	@Column(name = "suggestion_title", length = Values.NORMAL_TITLE_LENGTH,
+			nullable = false, unique = false)
 	private String title;
 	
 	/**
 	 * the content of the suggestion.
 	 */
-	@Column(name = "suggestion_content", length = 400, nullable = false, unique = false)
+	@Column(name = "suggestion_content", length = Values.NORMAL_CONTENT_LENGTH,
+			nullable = false, unique = false)
 	private String content;
 	
 	/**

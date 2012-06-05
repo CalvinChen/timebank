@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.user.User;
 
 @Entity
@@ -26,19 +27,19 @@ public class Admin {
 	/**
 	 * admin's login name.
 	 */
-	@Column(name = "login_name", length = 20, nullable = false, unique = true)
+	@Column(name = "login_name", length = Values.NORMAL_NAME_LENGTH, nullable = false, unique = true)
 	private String loginName;
 	
 	/**
 	 * admin's display name.
 	 */
-	@Column(name = "display_name", length = 20, nullable = false, unique = true)
+	@Column(name = "display_name", length = Values.NORMAL_NAME_LENGTH, nullable = false, unique = true)
 	private String displayName;
 	
 	/**
 	 * password.
 	 */
-	@Column(name = "password_column", length = 50, nullable = false, unique = false)
+	@Column(name = "password_column", length = Values.NORMAL_PASSWORD_LENGTH, nullable = false, unique = false)
 	private String password;
 	
 	/**

@@ -1,5 +1,7 @@
 package timebank.model.bank;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import timebank.model.Values;
 import timebank.model.admin.Admin;
 
 /**
@@ -39,13 +42,14 @@ public class HelpRecordValidation {
 	 * when validate?
 	 */
 	@Column(name = "validate_time", nullable = false, unique = false)
-	private String validateTime;
+	private Date validateTime;
 	
 	/**
 	 * why validate failure? the reason is? 
 	 * can be null if not failed.
 	 */
-	@Column(name = "why_validate_failure", nullable = true, unique = false)
+	@Column(name = "why_validate_failure", length = Values.SMALL_CONTENT_LENGTH,
+			nullable = true, unique = false)
 	private String whyValidateFailure;
 
 	public int getId() {
@@ -64,11 +68,11 @@ public class HelpRecordValidation {
 		this.validator = validator;
 	}
 
-	public String getValidateTime() {
+	public Date getValidateTime() {
 		return validateTime;
 	}
 
-	public void setValidateTime(String validateTime) {
+	public void setValidateTime(Date validateTime) {
 		this.validateTime = validateTime;
 	}
 
